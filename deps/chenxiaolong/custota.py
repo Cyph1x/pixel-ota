@@ -50,7 +50,7 @@ class CustotaRelease:
         # verify the signature
         file_data = open(temp_path, 'rb').read()
         try:
-            verifySignature(file_data, signature_path, logger=logger)
+            verifySignature(file_data, signature_path)
         except ValueError as e:
             os.remove(temp_path)
             os.remove(signature_path)
