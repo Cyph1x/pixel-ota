@@ -1,0 +1,10 @@
+ipykernel
+ipywidgets
+numpy
+pandas
+beautifulsoup4
+requests
+python-dotenv
+tqdm
+cryptography
+loguru

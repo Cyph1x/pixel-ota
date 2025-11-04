@@ -1,0 +1,12 @@
+keys/avb.key
+keys/ota.key
+keys/ota.crt
+.env
+.venv/
+*.log
+__pycache__/
+patched/
+deps/
+
+downloads/
+ota/
