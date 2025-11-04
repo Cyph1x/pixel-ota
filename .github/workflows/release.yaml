@@ -49,16 +49,18 @@ jobs:
         run: ls -la ota/
 
       - name: load release info from env var file
+        id: load_release_info
         run: |
-          set -a
-          source ota/release_info
-          set +a
+          # while IFS='=' read -r key value; do
+          #   echo "$key=$value" >> $GITHUB_OUTPUT
+          # done < ota/release_info
+          cat .env >> $GITHUB_ENV
       - name: Create Release 
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ env.build_id }}
-          name: ${{ env.build_id }}
-          body: ${{ env.build_id }}
+          tag_name: ${{ steps.load_release_info.outputs.build_id }}
+          name: ${{ steps.load_release_info.outputs.build_id }}
+          body: ${{ steps.load_release_info.outputs.build_id }}
           files: |
             ota/*.zip
             ota/*.zip.csig
