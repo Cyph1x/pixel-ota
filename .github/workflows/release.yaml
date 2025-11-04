@@ -64,9 +64,8 @@ jobs:
       - name: Create Release 
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.load_release_info.outputs.build_id }}
-          name: ${{ steps.load_release_info.outputs.build_id }}
-          body: ${{ steps.load_release_info.outputs.build_id }}
+          tag_name: ${{ env.build_id }}
+          name: ${{ env.build_id }}
           files: |
             ota/*.zip
             ota/*.zip.csig
