@@ -50,11 +50,17 @@ jobs:
 
       - name: load release info from env var file
         id: load_release_info
+        shell: bash
         run: |
-          # while IFS='=' read -r key value; do
-          #   echo "$key=$value" >> $GITHUB_OUTPUT
-          # done < ota/release_info
-          cat ota/release_info >> $GITHUB_ENV
+          while read line; do
+            echo "$line" >> $GITHUB_ENV
+          done < ota/release_info
+      -name: show release info
+       run: |
+         echo "Device: $device"
+         echo "Build ID: $build_id"
+         echo "Android Version: $android_version"
+         echo "OTA: $ota"
       - name: Create Release 
         uses: softprops/action-gh-release@v2
         with:
