@@ -55,8 +55,8 @@ jobs:
           while read line; do
             echo "$line" >> $GITHUB_ENV
           done < ota/release_info
-      -name: show release info
-       run: |
+      - name: show release info
+        run: |
          echo "Device: $device"
          echo "Build ID: $build_id"
          echo "Android Version: $android_version"
