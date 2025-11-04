@@ -425,3 +425,15 @@ fastboot flashing lock
     logger.info(f"Generating Custota update info with command: {' '.join(command)}")
     subprocess.run(command, check=True)
     logger.info(f"Custota update info generated at {os.path.join(ota_dir, f'{dependencies.selected_ota.device}.json')}")
+    with open(os.path.join(ota_dir, f"release_info"), 'w') as f:
+        f.write(f"device={dependencies.selected_ota.device}\n")
+        f.write(f"android_version={dependencies.selected_ota.android_version}\n")
+        f.write(f"build_id={dependencies.selected_ota.build_id}\n")
+        f.write(f"build_branch={dependencies.selected_ota.build_branch}\n")
+        f.write(f"build_date={dependencies.selected_ota.build_date}\n")
+        f.write(f"build_number={dependencies.selected_ota.build_number}\n")
+        f.write(f"build_variant={dependencies.selected_ota.build_variant}\n")
+        f.write(f"ota={os.path.basename(ota_path)}\n")
+        f.write(f"magisk_enabled={enable_magisk}\n")
+    logger.info(f"Release info written to {os.path.join(ota_dir, 'release_info')}")
+
