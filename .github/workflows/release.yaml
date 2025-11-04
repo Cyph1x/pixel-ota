@@ -69,8 +69,6 @@ jobs:
           files: |
             ota/*.zip
             ota/*.zip.csig
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: upload update info
         uses: actions/upload-pages-artifact@v3
