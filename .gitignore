@@ -6,7 +6,6 @@ keys/ota.crt
 *.log
 __pycache__/
 patched/
-deps/
 
 downloads/
 ota/
