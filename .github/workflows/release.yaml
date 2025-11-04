@@ -64,11 +64,14 @@ jobs:
          echo "Build ID: $build_id"
          echo "Android Version: $android_version"
          echo "OTA: $ota"
-      - name: Upload OTA Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: OTA-${{ env.device }}-${{ env.build_id }}
-          path: ota/
+      - name: Upload OTA Artifacts Individually
+        run: |
+          for file in ota/*; do
+          if [ -f "$file" ]; then
+            filename=$(basename "$file")
+            gh run upload --name "OTA-${{ env.device }}-${{ env.build_id }}-$filename" "$file"
+          fi
+            done
 
       # - name: Create Release 
       #   uses: softprops/action-gh-release@v2
