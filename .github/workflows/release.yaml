@@ -32,9 +32,9 @@ jobs:
           pip install -r requirements.txt
       - name: load keys
         run: |
-          echo $KEY_AVB | base64 --decode > keys/avb.key
-          echo $KEY_OTA | base64 --decode > keys/ota.key
-          echo $CERT_OTA | base64 --decode > keys/ota.crt
+          echo "$KEY_AVB" | base64 --decode > keys/avb.key
+          echo "$KEY_OTA" | base64 --decode > keys/ota.key
+          echo "$CERT_OTA" | base64 --decode > keys/ota.crt
       - name: list keys
         run: ls -la keys/
       - name: show key hashes
