@@ -54,7 +54,7 @@ jobs:
           # while IFS='=' read -r key value; do
           #   echo "$key=$value" >> $GITHUB_OUTPUT
           # done < ota/release_info
-          cat .env >> $GITHUB_ENV
+          cat ota/release_info >> $GITHUB_ENV
       - name: Create Release 
         uses: softprops/action-gh-release@v2
         with:
