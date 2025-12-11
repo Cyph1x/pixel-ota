@@ -301,10 +301,10 @@ if __name__ == "__main__":
         # ota_android_version="15.0.0",
         ota_device="lynx", # Pixel 7a
         ota_carrier="", # global
-        magisk_version="29.0",
-        avbroot_version="3.22.0",
-        afsr_version="1.0.3",
-        custota_version="5.17",
+        magisk_version="30.6",
+        avbroot_version="3.23.3",
+        afsr_version="1.0.4",
+        custota_version="5.19",
 
     )
 
